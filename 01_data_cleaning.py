@@ -1,18 +1,3 @@
-"""
-==========================================================================
- AUTOMOBILE SALES ANALYSIS - STEP 1: DATA CLEANING
-==========================================================================
-Project   : Automobile Sales Performance Analysis (SQL + Python + Power BI)
-Author    : <Your Name>
-Purpose   : Load the raw dealership sales export, clean it, engineer a
-            few useful columns, and save an analysis-ready CSV that is
-            used by:
-              - the Python EDA script (02_eda_analysis.py)
-              - the SQL database load (sql/01_create_and_load.sql)
-              - the Power BI dashboard (powerbi/Automobile_cleaned.csv)
-==========================================================================
-"""
-
 import pandas as pd
 import numpy as np
 import os
