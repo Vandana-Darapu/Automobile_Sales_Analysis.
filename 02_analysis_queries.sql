@@ -1,13 +1,3 @@
-/* ==========================================================================
-   AUTOMOBILE SALES ANALYSIS - BUSINESS QUERIES
-   ==========================================================================
-   A set of intermediate-level SQL queries (joins-free since this is a
-   single denormalized table, but uses aggregation, window functions,
-   CTEs, subqueries, ranking, and CASE logic -- the kind of query set
-   recruiters expect from an analyst project).
-   ========================================================================== */
-
--- 1. Total revenue and units sold, overall
 SELECT
     SUM(total_revenue)  AS total_revenue,
     SUM(qty_sold)        AS total_units_sold,
