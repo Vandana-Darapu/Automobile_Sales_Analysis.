@@ -1,16 +1,6 @@
-/* ==========================================================================
-   AUTOMOBILE SALES ANALYSIS - SQL SCHEMA & DATA LOAD
-   ==========================================================================
-   Works on MySQL / PostgreSQL with minor tweaks (noted inline).
-   Load the CLEANED file: data/Automobile_cleaned.csv
-   ========================================================================== */
-
--- 1. Create database (MySQL syntax; for Postgres just `CREATE DATABASE ...;`
---    then connect to it before running the rest)
 CREATE DATABASE IF NOT EXISTS automobile_sales;
 USE automobile_sales;
 
--- 2. Create the main sales fact table
 DROP TABLE IF EXISTS sales;
 CREATE TABLE sales (
     id                      INT AUTO_INCREMENT PRIMARY KEY,   -- Postgres: SERIAL PRIMARY KEY
@@ -40,8 +30,6 @@ CREATE TABLE sales (
     price_tier              VARCHAR(20)
 );
 
--- 3. Bulk load the cleaned CSV
---    MySQL example (adjust path, and enable local_infile if needed):
 LOAD DATA LOCAL INFILE '../data/Automobile_cleaned.csv'
 INTO TABLE sales
 FIELDS TERMINATED BY ','
@@ -54,14 +42,6 @@ IGNORE 1 ROWS
  sale_year, month_num, total_revenue, total_cost_per_unit, total_cost,
  net_revenue, price_tier);
 
--- Postgres alternative:
--- \copy sales(series_model, dealer, category, cars, manager, zone, sale_date,
---   sale_month, state, city, qty_sold, sold_price, car_insurance, state_tax,
---   consumer_family_status, consumer_profession, other_brand_preferred,
---   sale_year, month_num, total_revenue, total_cost_per_unit, total_cost,
---   net_revenue, price_tier)
--- FROM '../data/Automobile_cleaned.csv' WITH (FORMAT csv, HEADER true);
 
--- 4. Quick sanity check
 SELECT COUNT(*) AS total_rows FROM sales;
 SELECT * FROM sales LIMIT 5;
