@@ -1,14 +1,3 @@
-"""
-==========================================================================
- AUTOMOBILE SALES ANALYSIS - STEP 2: EXPLORATORY DATA ANALYSIS
-==========================================================================
-Reads the cleaned dataset produced by 01_data_cleaning.py, generates
-summary statistics and saves charts (PNG) into the /outputs folder.
-These charts double up as the visuals you can screenshot straight into
-your resume / project report / LinkedIn post.
-==========================================================================
-"""
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
